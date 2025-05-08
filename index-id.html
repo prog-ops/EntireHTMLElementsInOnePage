@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><!DOCTYPE html>
+    <html lang="id">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pameran komprehensif berbagai elemen HTML.">
+    <meta name="keywords" content="HTML, Elemen, Pameran, Pengembangan Web, Tag">
+    <meta name="author" content="Gemini">
+    <title>Pameran Elemen HTML</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth; /* Untuk pengguliran halus dengan tautan nav */
+    }
+    /* Gaya kustom untuk elemen tertentu jika diperlukan, meskipun Tailwind seharusnya mencakup sebagian besar */
+    details > summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    dialog {
+      border-radius: 0.5rem; /* Tailwind: rounded-lg */
+      border: 1px solid #e5e7eb; /* Tailwind: border border-gray-200 */
+      padding: 1.5rem; /* Tailwind: p-6 */
+    }
+    dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    /* Tambahkan beberapa gaya dasar untuk kotak pesan jika kita menggunakan JS untuk menampilkannya */
+    .message-box {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f87171; /* Tailwind: bg-red-500 */
+      color: white;
+      padding: 1rem 1.5rem; /* Tailwind: px-6 py-4 */
+      border-radius: 0.375rem; /* Tailwind: rounded-md */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tailwind: shadow-lg */
+      z-index: 1000;
+      display: none; /* Tersembunyi secara default */
+    }
+    /* Gaya untuk navigasi */
+    #table-of-contents nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0.375rem; /* rounded-md */
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    #table-of-contents nav a:hover {
+      background-color: #e5e7eb; /* bg-gray-200 */
+      color: #1f2937; /* text-gray-800 */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
+
+<header class="bg-blue-600 text-white p-6 shadow-md">
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold">Pameran Elemen HTML</h1>
+    <p class="text-lg mt-2">Demonstrasi berbagai elemen HTML5.</p>
+  </div>
+</header>
+
+<div id="table-of-contents" class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
+  <h2 class="text-2xl font-semibold mb-4 text-blue-700">Daftar Isi</h2>
+  <nav class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <a href="#sectioning-root" class="text-blue-600 hover:underline">Akar Pembagian (Sectioning Root)</a>
+    <a href="#content-sectioning" class="text-blue-600 hover:underline">Pembagian Konten</a>
+    <a href="#text-content" class="text-blue-600 hover:underline">Konten Teks</a>
+    <a href="#inline-text" class="text-blue-600 hover:underline">Semantik Teks Inline</a>
+    <a href="#multimedia" class="text-blue-600 hover:underline">Gambar dan Multimedia</a>
+    <a href="#embedded-content" class="text-blue-600 hover:underline">Konten Tersemat</a>
+    <a href="#scripting" class="text-blue-600 hover:underline">Skrip (Scripting)</a>
+    <a href="#edits" class="text-blue-600 hover:underline">Menandai Perubahan (Edits)</a>
+    <a href="#tables" class="text-blue-600 hover:underline">Konten Tabel</a>
+    <a href="#forms" class="text-blue-600 hover:underline">Formulir</a>
+    <a href="#interactive" class="text-blue-600 hover:underline">Elemen Interaktif</a>
+  </nav>
+</div>
+
+<main class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
+
+  <section id="sectioning-root" class="mb-12 p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-700">1. Akar Pembagian (Sectioning Root)</h2>
+    <p>Elemen <code>&lt;body&gt;</code>, yang berisi semua konten dokumen HTML, adalah akar pembagian utama. Seluruh konten halaman ini berada di dalam body.</p>
+  </section>
+
+  <section id="content-sectioning" class="mb-12 p-4 border-l-4 border-green-500 bg-green-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-green-700">2. Pembagian Konten</h2>
+
+    <article class="mb-6 p-4 border border-gray-300 rounded-md">
+      <h3 class="text-xl font-semibold mb-2">Elemen <code>&lt;article&gt;</code></h3>
+      <p>Ini adalah sebuah <code>&lt;article&gt;</code>. Ini merepresentasikan komposisi mandiri dalam dokumen, halaman, aplikasi, atau situs, yang dimaksudkan untuk dapat didistribusikan atau digunakan kembali secara independen (misalnya, dalam sindikasi). Contohnya termasuk: posting forum, artikel majalah atau koran, atau entri blog.</p>
+      <section class="mt-4 p-3 border border-gray-200 rounded-md bg-gray-50">
+        <h4 class="text-lg font-medium"><code>&lt;section&gt;</code> di dalam article</h4>
+        <p>Ini adalah <code>&lt;section&gt;</code> di dalam artikel, digunakan untuk mengelompokkan konten yang terkait secara tematis.</p>
+      </section>
+    </article>
+
+    <nav class="mb-6 p-4 border border-gray-300 rounded-md bg-gray-100">
+      <h3 class="text-xl font-semibold mb-2">Elemen <code>&lt;nav&gt;</code></h3>
+      <p>Blok <code>&lt;nav&gt;</code> ini merepresentasikan bagian dari halaman yang tujuannya adalah untuk menyediakan tautan navigasi, baik di dalam dokumen saat ini maupun ke dokumen lain. Daftar isi di atas adalah contoh lainnya.</p>
+      <ul class="list-disc list-inside ml-4">
+        <li><a href="#home" class="text-blue-600 hover:underline">Beranda (dummy)</a></li>
+        <li><a href="#about" class="text-blue-600 hover:underline">Tentang (dummy)</a></li>
+      </ul>
+    </nav>
+
+    <aside class="mb-6 p-4 border border-gray-300 rounded-md bg-yellow-50 float-right w-full md:w-1/3 ml-0 md:ml-4 clear-both md:clear-none">
+      <h3 class="text-xl font-semibold mb-2">Elemen <code>&lt;aside&gt;</code></h3>
+      <p>Ini adalah sebuah <code>&lt;aside&gt;</code>. Ini merepresentasikan bagian dari dokumen yang kontennya hanya terkait secara tidak langsung dengan konten utama dokumen. Aside sering disajikan sebagai sidebar atau kotak info.</p>
+    </aside>
+
+    <div class="clear-both md:clear-none"> <h3 class="text-xl font-semibold mt-4 mb-2">Elemen Heading <code>&lt;h1&gt;</code> hingga <code>&lt;h6&gt;</code></h3>
+      <div class="p-4 border border-gray-300 rounded-md">
+        <h1>Heading 1 (<code>&lt;h1&gt;</code>) - Biasanya judul halaman, digunakan di header.</h1>
+        <h2>Heading 2 (<code>&lt;h2&gt;</code>) - Digunakan untuk judul bagian utama.</h2>
+        <h3>Heading 3 (<code>&lt;h3&gt;</code>) - Digunakan untuk judul sub-bagian.</h3>
+        <h4>Heading 4 (<code>&lt;h4&gt;</code>) - Heading level lebih dalam.</h4>
+        <h5>Heading 5 (<code>&lt;h5&gt;</code>) - Lebih dalam lagi.</h5>
+        <h6>Heading 6 (<code>&lt;h6&gt;</code>) - Level heading terdalam.</h6>
+      </div>
+    </div>
+
+
+    <div class="mt-6 p-4 border border-gray-300 rounded-md">
+      <h3 class="text-xl font-semibold mb-2">Elemen <code>&lt;address&gt;</code></h3>
+      <address>
+        Ditulis oleh: <a href="mailto:webmaster@example.com" class="text-blue-600 hover:underline">Para Perajin HTML</a><br>
+        Kunjungi kami di:<br>
+        Contoh.com<br>
+        Kotak 564, Disneyland<br>
+        USA
+      </address>
+      <p class="mt-2 text-sm text-gray-600">Elemen <code>&lt;address&gt;</code> menunjukkan bahwa HTML yang terlampir menyediakan informasi kontak untuk seseorang atau beberapa orang, atau untuk sebuah organisasi.</p>
+    </div>
+  </section>
+
+  <section id="text-content" class="mb-12 p-4 border-l-4 border-purple-500 bg-purple-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-purple-700">3. Konten Teks</h2>
+
+    <p class="mb-2">Ini adalah elemen <code>&lt;p&gt;</code> (paragraf), digunakan untuk blok teks.</p>
+    <hr class="my-4 border-gray-300"> <p class="mb-2">Elemen <code>&lt;hr&gt;</code> di atas merepresentasikan pemisah tematik antara elemen tingkat paragraf.</p>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;pre&gt;</code> (Teks Terformat)</h4>
+      <pre class="bg-gray-800 text-white p-3 rounded-md overflow-x-auto"><code>
+function sapa() {
+  console.log("Halo, dunia!");
+}
+                </code></pre>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;blockquote&gt;</code></h4>
+      <blockquote cite="http://www.contoh.com/sumber" class="border-l-4 border-gray-400 pl-4 italic text-gray-700">
+        <p>"Ini adalah kutipan yang diambil dari sumber lain. Merupakan praktik yang baik untuk mengutip sumber menggunakan atribut 'cite'."</p>
+        <footer class="text-sm text-gray-500 mt-1">—Orang Terkenal, <cite>Judul Sumber</cite></footer>
+      </blockquote>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;ol&gt;</code> (Daftar Terurut)</h4>
+        <ol class="list-decimal list-inside">
+          <li>Item pertama</li>
+          <li>Item kedua
+            <ol type="a" class="list-alpha list-inside ml-6"> <li>Item bersarang A</li>
+              <li>Item bersarang B</li>
+            </ol>
+          </li>
+          <li>Item ketiga</li>
+        </ol>
+      </div>
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;ul&gt;</code> (Daftar Tidak Terurut)</h4>
+        <ul class="list-disc list-inside">
+          <li>Poin satu</li>
+          <li>Poin dua
+            <ul class="list-circle list-inside ml-6">
+              <li>Poin bersarang A</li>
+              <li>Poin bersarang B</li>
+            </ul>
+          </li>
+          <li>Poin tiga</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> (Daftar Deskripsi)</h4>
+      <dl>
+        <dt class="font-semibold">HTML</dt>
+        <dd class="ml-4 mb-1">HyperText Markup Language</dd>
+        <dt class="font-semibold">CSS</dt>
+        <dd class="ml-4 mb-1">Cascading Style Sheets</dd>
+      </dl>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;figure&gt;</code> dan <code>&lt;figcaption&gt;</code></h4>
+      <figure class="text-center">
+        <img src="https://placehold.co/400x200/007bff/ffffff?text=Contoh+Gambar" alt="Gambar placeholder" class="mx-auto rounded-md shadow-sm">
+        <figcaption class="mt-2 text-sm text-gray-600">Gbr.1 - Contoh gambar dengan keterangan menggunakan <code>&lt;figcaption&gt;</code>.</figcaption>
+      </figure>
+    </div>
+
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;div&gt;</code></h4>
+      <div class="p-2 bg-gray-200 rounded">
+        Ini adalah <code>&lt;div&gt;</code>. Ini adalah wadah generik untuk konten alur dan tidak secara inheren merepresentasikan apa pun. Sering digunakan untuk tujuan penataan gaya atau skrip.
+      </div>
+    </div>
+  </section>
+
+  <section id="inline-text" class="mb-12 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-teal-700">4. Semantik Teks Inline</h2>
+    <div class="space-y-2 p-3 border border-gray-200 rounded-md">
+      <p><a href="#" class="text-blue-600 hover:underline">Ini adalah hyperlink (<code>&lt;a&gt;</code>).</a></p>
+      <p><em>Teks ini ditegaskan (<code>&lt;em&gt;</code>).</em></p>
+      <p><strong>Teks ini sangat penting (<code>&lt;strong&gt;</code>).</strong></p>
+      <p><small>Teks ini adalah cetakan kecil (<code>&lt;small&gt;</code>).</small></p>
+      <p><s>Teks ini dicoret (<code>&lt;s&gt;</code>), menunjukkan tidak lagi akurat.</s></p>
+      <p><cite>Jeritan</cite> oleh Edvard Munch. (<code>&lt;cite&gt;</code> untuk judul karya).</p>
+      <p><q>Ini adalah kutipan inline pendek (<code>&lt;q&gt;</code>).</q></p>
+      <p>Elemen <code>&lt;code&gt;</code> adalah untuk cuplikan <code>kode inline</code>.</p>
+      <p>H<sub>2</sub>O (<code>&lt;sub&gt;</code> untuk subskrip). E = mc<sup>2</sup> (<code>&lt;sup&gt;</code> untuk superskrip).</p>
+      <p><i>Teks ini dicetak miring (<code>&lt;i&gt;</code>), sering untuk istilah teknis atau kata asing.</i></p>
+      <p><b>Teks ini dicetak tebal (<code>&lt;b&gt;</code>), secara stilistik berbeda tanpa menyampaikan kepentingan ekstra.</b></p>
+      <p><u>Teks ini digarisbawahi (<code>&lt;u&gt;</code>), meskipun gunakan dengan hati-hati karena dapat disalahartikan sebagai tautan.</u></p>
+      <p>Anda dapat <mark>menyorot teks (<code>&lt;mark&gt;</code>)</mark> untuk referensi atau notasi.</p>
+      <p>Ini_adalah_kata_yang_sangat_panjang<wbr>yang_mungkin_membutuhkan_peluang_pemisah_kata (<code>&lt;wbr&gt;</code>).</p>
+      <p>Konser diadakan pada <time datetime="2025-12-25">Hari Natal</time> (<code>&lt;time&gt;</code>).</p>
+      <p>Ini adalah <span>wadah inline generik (<code>&lt;span&gt;</code>)</span>, sering digunakan untuk kaitan penataan gaya.</p>
+    </div>
+  </section>
+
+  <section id="multimedia" class="mb-12 p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-indigo-700">5. Gambar dan Multimedia</h2>
+
+    <div class="mb-6 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;img&gt;</code></h4>
+      <img src="https://placehold.co/600x150/3498db/ffffff?text=Gambar+Responsif" alt="Gambar placeholder" class="w-full h-auto rounded-md shadow-sm"
+           onerror="this.onerror=null; this.src='https://placehold.co/600x150/cc0000/ffffff?text=Gambar+Gagal+Dimuat';">
+      <p class="mt-2 text-sm text-gray-600">Atribut <code>onerror</code> menyediakan fallback jika gambar gagal dimuat.</p>
+
+      <h4 class="text-lg font-medium mt-4 mb-1">Gambar dengan <code>&lt;map&gt;</code> dan <code>&lt;area&gt;</code></h4>
+      <img src="https://placehold.co/300x150/2ecc71/ffffff?text=Peta+Gambar" alt="Placeholder peta gambar" usemap="#image-map-example" class="rounded-md shadow-sm">
+      <map name="image-map-example">
+        <area shape="rect" coords="25,25,125,125" href="#rect-link" alt="Area Persegi Panjang" title="Area Persegi Panjang (tautan dummy)">
+        <area shape="circle" coords="225,75,50" href="#circle-link" alt="Area Lingkaran" title="Area Lingkaran (tautan dummy)">
+      </map>
+      <p class="mt-1 text-xs text-gray-500">Arahkan kursor ke bagian gambar (tidak fungsional tanpa JS untuk menampilkan umpan balik dengan mudah, tetapi peta sudah ditentukan).</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;audio&gt;</code></h4>
+        <audio controls class="w-full">
+          <source src="file_audio_tidak_ada.mp3" type="audio/mpeg">
+          <source src="file_audio_tidak_ada.ogg" type="audio/ogg">
+          Browser Anda tidak mendukung elemen audio. (Konten fallback)
+        </audio>
+        <p class="mt-1 text-xs text-gray-500">Catatan: File audio aktual tidak disediakan, ini menunjukkan struktur elemen.</p>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;video&gt;</code></h4>
+        <video controls width="100%" class="rounded-md shadow-sm" poster="https://placehold.co/320x180/e74c3c/ffffff?text=Poster+Video">
+          <source src="file_video_tidak_ada.mp4" type="video/mp4">
+          <source src="file_video_tidak_ada.webm" type="video/webm">
+          <track label="Bahasa Indonesia" kind="subtitles" srclang="id" src="subtitle_tidak_ada.vtt" default>
+          Browser Anda tidak mendukung tag video. (Konten fallback)
+        </video>
+        <p class="mt-1 text-xs text-gray-500">Catatan: File video/track aktual tidak disediakan.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;svg&gt;</code> (SVG Inline)</h4>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 mx-auto">
+          <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        </svg>
+        <p class="text-center mt-1 text-xs text-gray-500">Lingkaran sederhana yang digambar dengan SVG.</p>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;canvas&gt;</code></h4>
+        <canvas id="myCanvas" width="200" height="100" class="border border-gray-400 rounded-md mx-auto block">
+          Browser Anda tidak mendukung tag canvas.
+        </canvas>
+        <p class="text-center mt-1 text-xs text-gray-500">Elemen canvas (penggambaran melalui JS tidak disertakan di sini).</p>
+      </div>
+    </div>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;picture&gt;</code></h4>
+      <picture>
+        <source srcset="https://placehold.co/800x200/f39c12/ffffff?text=Layar+Besar" media="(min-width: 768px)">
+        <source srcset="https://placehold.co/400x100/16a085/ffffff?text=Layar+Kecil" media="(min-width: 480px)">
+        <img src="https://placehold.co/300x75/c0392b/ffffff?text=Gambar+Default" alt="Gambar placeholder responsif" class="w-full h-auto rounded-md shadow-sm">
+      </picture>
+      <p class="mt-1 text-xs text-gray-500">Elemen <code>&lt;picture&gt;</code> memungkinkan pengarahan seni berdasarkan ukuran viewport. Ubah ukuran browser Anda untuk melihat gambar yang berbeda (placeholder).</p>
+    </div>
+  </section>
+
+  <section id="embedded-content" class="mb-12 p-4 border-l-4 border-pink-500 bg-pink-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-pink-700">6. Konten Tersemat</h2>
+    <div class="p-3 border border-gray-200 rounded-md mb-4">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;iframe&gt;</code></h4>
+      <p class="mb-2 text-sm">Di bawah ini adalah iframe. Untuk alasan keamanan, penyematan situs eksternal mungkin dibatasi oleh browser atau situs itu sendiri (header X-Frame-Options). Halaman placeholder sederhana atau situs yang diketahui permisif akan bekerja lebih baik untuk demo langsung.</p>
+      <iframe src="about:blank" title="Contoh Iframe" class="w-full h-48 border border-gray-300 rounded-md" sandbox>
+        Browser Anda tidak mendukung iframe.
+      </iframe>
+      <p class="mt-1 text-xs text-gray-500">Menggunakan <code>about:blank</code> dan <code>sandbox</code> untuk contoh yang aman dan sederhana.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;embed&gt;</code> (Lama, gunakan dengan hati-hati)</h4>
+        <p class="text-gray-600">Tag <code>&lt;embed&gt;</code> adalah untuk menyematkan konten eksternal, seringkali berbasis plugin. Alternatif modern seperti <code>&lt;object&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;img&gt;</code> lebih disukai. Contoh dikomentari karena Flash sudah usang.</p>
+        <div class="w-full h-32 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">Placeholder Embed</div>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;object&gt;</code></h4>
+        <p class="text-gray-600">Tag <code>&lt;object&gt;</code> dapat menyematkan berbagai jenis sumber daya eksternal, seperti gambar, konteks penjelajahan bersarang, atau konten plugin. Contoh untuk PDF dikomentari.</p>
+        <div class="w-full h-32 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">Placeholder Object</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scripting" class="mb-12 p-4 border-l-4 border-yellow-500 bg-yellow-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-yellow-700">7. Skrip (Scripting)</h2>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;script&gt;</code></h4>
+      <p>Elemen <code>&lt;script&gt;</code> digunakan untuk menyematkan atau merujuk ke skrip yang dapat dieksekusi. Biasanya JavaScript. Satu digunakan di <code>&lt;head&gt;</code> untuk Tailwind CSS. Yang lain bisa ada di sini:</p>
+      <script>
+        // Contoh JavaScript inline
+        // Skrip ini hanya mencatat ke konsol, tidak mengubah halaman secara visual di sini.
+        console.log("Halo dari skrip inline di bagian 'Skrip'!");
+
+        // Contoh berinteraksi dengan canvas (sangat dasar)
+        const canvas = document.getElementById('myCanvas');
+        if (canvas && canvas.getContext) {
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.fillStyle = 'rgb(200, 0, 0)';
+            ctx.fillRect(10, 10, 50, 50); // Menggambar persegi merah
+
+            ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+            ctx.fillRect(30, 30, 50, 50); // Menggambar persegi biru
+          }
+        }
+      </script>
+      <pre class="bg-gray-800 text-white p-2 rounded mt-2 text-sm"><code>// console.log("Halo dari skrip inline!");</code></pre>
+
+      <h4 class="text-lg font-medium mt-4 mb-1">Elemen <code>&lt;noscript&gt;</code></h4>
+      <noscript>
+        <p class="text-red-600 p-2 bg-red-100 rounded-md">Konten ini ditampilkan jika skrip dinonaktifkan di browser. (<code>&lt;noscript&gt;</code>)</p>
+      </noscript>
+      <p class="mt-1 text-xs text-gray-500">Jika JavaScript diaktifkan, Anda tidak akan melihat pesan noscript di atas.</p>
+    </div>
+  </section>
+
+  <section id="edits" class="mb-12 p-4 border-l-4 border-red-500 bg-red-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-red-700">8. Menandai Perubahan</h2>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <p>Harga aslinya adalah <del class="text-red-500">Rp1.000.000</del> (<code>&lt;del&gt;</code> untuk teks yang dihapus).</p>
+      <p>Harga barunya adalah <ins class="text-green-600 bg-green-100 p-1 rounded">Rp800.000</ins> (<code>&lt;ins&gt;</code> untuk teks yang disisipkan).</p>
+    </div>
+  </section>
+
+  <section id="tables" class="mb-12 p-4 border-l-4 border-cyan-500 bg-cyan-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-cyan-700">9. Konten Tabel</h2>
+    <div class="overflow-x-auto p-3 border border-gray-200 rounded-md">
+      <table class="w-full border-collapse border border-gray-300 rounded-md shadow-sm">
+        <caption class="caption-bottom text-sm text-gray-600 p-2 bg-gray-100 rounded-t-md">Tabel 1: Data Pengguna (<code>&lt;caption&gt;</code>)</caption>
+        <colgroup>
+          <col span="1" class="bg-blue-50"> <col span="2" class="bg-green-50"> </colgroup>
+        <thead class="bg-gray-200">
+        <tr>
+          <th class="p-3 border border-gray-300 text-left">ID (<code>&lt;th&gt;</code>)</th>
+          <th class="p-3 border border-gray-300 text-left">Nama</th>
+          <th class="p-3 border border-gray-300 text-left">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="p-3 border border-gray-300">1 (<code>&lt;td&gt;</code>)</td>
+          <td class="p-3 border border-gray-300">Alice Wonderland</td>
+          <td class="p-3 border border-gray-300">alice@contoh.com</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="p-3 border border-gray-300">2</td>
+          <td class="p-3 border border-gray-300">Bob The Builder</td>
+          <td class="p-3 border border-gray-300">bob@contoh.com</td>
+        </tr>
+        </tbody>
+        <tfoot class="bg-gray-200">
+        <tr>
+          <td colspan="3" class="p-3 border border-gray-300 text-center">Akhir data pengguna (<code>&lt;tfoot&gt;</code>)</td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section id="forms" class="mb-12 p-4 border-l-4 border-orange-500 bg-orange-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-orange-700">10. Formulir</h2>
+    <form action="#submit-form" method="post" class="space-y-6 p-4 border border-gray-300 rounded-md shadow-sm">
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Informasi Pribadi (<code>&lt;fieldset&gt;</code> & <code>&lt;legend&gt;</code>)</legend>
+
+        <div class="mb-4">
+          <label for="nameInput" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap (<code>&lt;label&gt;</code>):</label>
+          <input type="text" id="nameInput" name="fullname" placeholder="Masukkan nama lengkap Anda" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+        </div>
+
+        <div class="mb-4">
+          <label for="emailInput" class="block text-sm font-medium text-gray-700 mb-1">Email (<code>&lt;input type="email"&gt;</code>):</label>
+          <input type="email" id="emailInput" name="email" placeholder="anda@contoh.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+        </div>
+
+        <div class="mb-4">
+          <label for="passwordInput" class="block text-sm font-medium text-gray-700 mb-1">Kata Sandi (<code>&lt;input type="password"&gt;</code>):</label>
+          <input type="password" id="passwordInput" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Preferensi</legend>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Minat (<code>&lt;input type="checkbox"&gt;</code>):</label>
+          <div class="mt-2 space-y-2">
+            <label class="inline-flex items-center">
+              <input type="checkbox" name="interests" value="coding" class="rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+              <span class="ml-2">Coding</span>
+            </label>
+            <label class="inline-flex items-center ml-4">
+              <input type="checkbox" name="interests" value="music" class="rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+              <span class="ml-2">Musik</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Preferensi Kontak (<code>&lt;input type="radio"&gt;</code>):</label>
+          <div class="mt-2 space-y-2">
+            <label class="inline-flex items-center">
+              <input type="radio" name="contact_pref" value="email" checked class="text-orange-600 border-gray-300 focus:ring-orange-500">
+              <span class="ml-2">Email</span>
+            </label>
+            <label class="inline-flex items-center ml-4">
+              <input type="radio" name="contact_pref" value="phone" class="text-orange-600 border-gray-300 focus:ring-orange-500">
+              <span class="ml-2">Telepon</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="fruitSelect" class="block text-sm font-medium text-gray-700 mb-1">Buah (<code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;optgroup&gt;</code>):</label>
+          <select id="fruitSelect" name="fruit" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md">
+            <optgroup label="Green">
+              <option value="gr">Grape</option>
+              <option value="ki">Kiwi</option>
+            </optgroup>
+            <optgroup label="Red">
+              <option value="rm">Rambutan</option>
+              <option value="le">Lychee</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Komentar (<code>&lt;textarea&gt;</code>):</label>
+          <textarea id="comments" name="comments" rows="3" placeholder="Ada komentar?" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Input Lainnya</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="favColor" class="block text-sm font-medium text-gray-700">Warna Favorit (<code>type="color"</code>):</label>
+            <input type="color" id="favColor" name="favColor" value="#ff6347" class="mt-1 block w-full h-10 rounded-md border-gray-300 shadow-sm">
+          </div>
+          <div>
+            <label for="birthDate" class="block text-sm font-medium text-gray-700">Tanggal Lahir (<code>type="date"</code>):</label>
+            <input type="date" id="birthDate" name="birthDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="quantity" class="block text-sm font-medium text-gray-700">Kuantitas (<code>type="number"</code>):</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="volume" class="block text-sm font-medium text-gray-700">Volume (<code>type="range"</code>):</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50" class="mt-1 block w-full h-6 accent-orange-500">
+          </div>
+          <div>
+            <label for="homepage" class="block text-sm font-medium text-gray-700">Halaman Beranda (<code>type="url"</code>):</label>
+            <input type="url" id="homepage" name="homepage" placeholder="https://contoh.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700">Telepon (<code>type="tel"</code>):</label>
+            <input type="tel" id="phone" name="phone" placeholder="0812-3456-7890" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="searchQuery" class="block text-sm font-medium text-gray-700">Pencarian (<code>type="search"</code>):</label>
+            <input type="search" id="searchQuery" name="searchQuery" placeholder="Cari..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="attachment" class="block text-sm font-medium text-gray-700">Lampiran (<code>type="file"</code>):</label>
+            <input type="file" id="attachment" name="attachment" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100">
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="browserSuggestion" class="block text-sm font-medium text-gray-700 mb-1">Browser (<code>&lt;datalist&gt;</code>):</label>
+          <input list="browsers" id="browserSuggestion" name="browser" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+            <option value="Opera">
+          </datalist>
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Meter & Progres</legend>
+        <div class="mb-4">
+          <label for="diskUsage" class="block text-sm font-medium text-gray-700">Penggunaan Disk (<code>&lt;meter&gt;</code>):</label>
+          <meter id="diskUsage" value="75" min="0" max="100" low="30" high="80" optimum="50" class="w-full h-6 mt-1">75%</meter>
+          <p class="text-xs text-gray-500">Nilai: 75, Min: 0, Max: 100, Rendah: 30, Tinggi: 80, Optimum: 50</p>
+        </div>
+        <div class="mb-4">
+          <label for="fileProgress" class="block text-sm font-medium text-gray-700">Unduhan File (<code>&lt;progress&gt;</code>):</label>
+          <progress id="fileProgress" value="60" max="100" class="w-full h-6 mt-1 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg   [&::-webkit-progress-bar]:bg-slate-300 [&::-webkit-progress-value]:bg-orange-400 [&::-moz-progress-bar]:bg-orange-400">60%</progress>
+          <p class="text-xs text-gray-500">Progres saat ini: 60%</p>
+        </div>
+        <div class="mb-4">
+          <label for="calcOutput" class="block text-sm font-medium text-gray-700">Hasil Kalkulasi (<code>&lt;output&gt;</code>):</label>
+          <output name="result" for="a b" class="mt-1 p-2 block w-full bg-gray-100 rounded-md border border-gray-300">Hasil akan muncul di sini</output>
+          <p class="text-xs text-gray-500">(Biasanya diisi oleh JavaScript setelah kalkulasi, mis., <code>oninput="result.value=parseInt(a.value)+parseInt(b.value)"</code> jika 'a' dan 'b' adalah input)</p>
+        </div>
+      </fieldset>
+
+      <div class="flex items-center justify-end space-x-3">
+        <button type="reset" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+          Atur Ulang (<code>&lt;input type="reset"&gt;</code> atau <code>&lt;button type="reset"&gt;</code>)
+        </button>
+        <button type="button" onclick="showCustomMessage('Tombol diklik!')" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Tombol Generik (<code>&lt;button type="button"&gt;</code>)
+        </button>
+        <input type="submit" value="Kirim Input (type='submit')" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 cursor-pointer">
+        <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+          Tombol Kirim (<code>&lt;button type="submit"&gt;</code>)
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section id="interactive" class="mb-12 p-4 border-l-4 border-lime-500 bg-lime-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-lime-700">11. Elemen Interaktif</h2>
+
+    <div class="mb-6 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;details&gt;</code> dan <code>&lt;summary&gt;</code></h4>
+      <details class="bg-white p-3 rounded-md shadow">
+        <summary class="text-lime-800 hover:text-lime-600">Klik untuk melihat detail</summary>
+        <p class="mt-2 text-gray-700">Konten ini tersembunyi secara default dan dapat di-toggle dengan mengklik ringkasan. Elemen <code>&lt;details&gt;</code> membuat widget pengungkapan.</p>
+      </details>
+    </div>
+
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1">Elemen <code>&lt;dialog&gt;</code></h4>
+      <button id="showDialogBtn" class="px-4 py-2 bg-lime-600 text-white rounded-md hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2">Tampilkan Dialog</button>
+      <dialog id="myDialog" class="rounded-lg shadow-xl p-6 w-full max-w-md mx-auto">
+        <h3 class="text-xl font-semibold mb-3 text-lime-700">Judul Dialog</h3>
+        <p class="text-gray-700 mb-4">Ini adalah dialog modal. Dapat ditutup dengan menekan ESC atau mengklik tombol di bawah.</p>
+        <form method="dialog">
+          <button class="px-4 py-2 bg-lime-500 text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-400">Tutup Dialog</button>
+        </form>
+      </dialog>
+      <p class="mt-2 text-xs text-gray-500">Elemen <code>&lt;dialog&gt;</code> dapat dikontrol dengan JavaScript (<code>.showModal()</code>, <code>.close()</code>).</p>
+    </div>
+  </section>
+
+  <div id="customMessageBox" class="message-box">
+    Ini adalah pesan kustom!
+  </div>
+
+</main>
+
+<footer class="bg-gray-800 text-gray-300 p-8 mt-12 text-center">
+  <div class="container mx-auto">
+    <p>&copy; <time datetime="2025">2025</time> Pameran Elemen HTML. Hak cipta dilindungi.</p>
+    <p class="text-sm mt-1">Dirancang untuk mendemonstrasikan berbagai tag HTML.</p>
+    <p class="text-xs mt-2">Halaman terakhir diperbarui: <time id="lastUpdatedTime">8 Mei 2025</time></p>
+  </div>
+</footer>
+
+<script>
+  // JavaScript untuk elemen interaktif seperti dialog
+  const showDialogBtn = document.getElementById('showDialogBtn');
+  const myDialog = document.getElementById('myDialog');
+  const customMessageBox = document.getElementById('customMessageBox');
+
+  function showCustomMessage(message) {
+    if (customMessageBox) {
+      customMessageBox.textContent = message;
+      customMessageBox.style.display = 'block';
+      customMessageBox.style.backgroundColor = '#3b82f6'; // Warna biru untuk info umum
+      setTimeout(() => { customMessageBox.style.display = 'none'; }, 3000);
+    }
+  }
+
+  if (showDialogBtn && myDialog) {
+    showDialogBtn.addEventListener('click', () => {
+      if (typeof myDialog.showModal === "function") {
+        myDialog.showModal();
+      } else {
+        console.warn("API <dialog> (showModal) tidak didukung oleh browser ini.");
+        if(customMessageBox) {
+          customMessageBox.textContent = 'Dialog.showModal() tidak didukung. Ini adalah pesan fallback.';
+          customMessageBox.style.backgroundColor = '#f87171'; // Warna merah untuk peringatan
+          customMessageBox.style.display = 'block';
+          setTimeout(() => { customMessageBox.style.display = 'none'; }, 3000);
+        }
+      }
+    });
+  }
+
+  // Ganti alert() pada tombol generik dengan custom message box
+  const genericButton = document.querySelector('button[type="button"][onclick^="alert"]');
+  if (genericButton) {
+    genericButton.onclick = function() {
+      showCustomMessage('Tombol generik diklik!');
+    };
+  }
+
+  // Memperbarui waktu terakhir diperbarui secara dinamis (opsional, untuk realisme)
+  // const lastUpdatedElem = document.getElementById('lastUpdatedTime');
+  // if (lastUpdatedElem) {
+  //    const today = new Date();
+  //    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  //    lastUpdatedElem.textContent = today.toLocaleDateString('id-ID', options);
+  // }
+</script>
+
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
