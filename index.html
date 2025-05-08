@@ -1,33 +1,641 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A comprehensive showcase of various HTML elements.">
+  <meta name="keywords" content="HTML, Elements, Showcase, Web Development, Tags">
+  <meta name="author" content="Gemini">
+  <title>HTML Elements Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth; /* For smooth scrolling with nav links */
+    }
+    /* Custom styles for specific elements if needed, though Tailwind should cover most */
+    details > summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    dialog {
+      border-radius: 0.5rem; /* Tailwind: rounded-lg */
+      border: 1px solid #e5e7eb; /* Tailwind: border border-gray-200 */
+      padding: 1.5rem; /* Tailwind: p-6 */
+    }
+    dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    /* Add some basic styling for the message box if we were to use JS to show it */
+    .message-box {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f87171; /* Tailwind: bg-red-500 */
+      color: white;
+      padding: 1rem 1.5rem; /* Tailwind: px-6 py-4 */
+      border-radius: 0.375rem; /* Tailwind: rounded-md */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Tailwind: shadow-lg */
+      z-index: 1000;
+      display: none; /* Hidden by default */
+    }
+    /* Style for navigation */
+    #table-of-contents nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.25rem;
+      border-radius: 0.375rem; /* rounded-md */
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    #table-of-contents nav a:hover {
+      background-color: #e5e7eb; /* bg-gray-200 */
+      color: #1f2937; /* text-gray-800 */
+    }
+  </style>
 </head>
+<body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
 
-<body>
+<header class="bg-blue-600 text-white p-6 shadow-md">
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold">HTML Elements Showcase</h1>
+    <p class="text-lg mt-2">A demonstration of various HTML5 elements.</p>
+  </div>
+</header>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+<div id="table-of-contents" class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
+  <h2 class="text-2xl font-semibold mb-4 text-blue-700">Table of Contents</h2>
+  <nav class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <a href="#sectioning-root" class="text-blue-600 hover:underline">Sectioning Root</a>
+    <a href="#content-sectioning" class="text-blue-600 hover:underline">Content Sectioning</a>
+    <a href="#text-content" class="text-blue-600 hover:underline">Text Content</a>
+    <a href="#inline-text" class="text-blue-600 hover:underline">Inline Text Semantics</a>
+    <a href="#multimedia" class="text-blue-600 hover:underline">Image and Multimedia</a>
+    <a href="#embedded-content" class="text-blue-600 hover:underline">Embedded Content</a>
+    <a href="#scripting" class="text-blue-600 hover:underline">Scripting</a>
+    <a href="#edits" class="text-blue-600 hover:underline">Demarcating Edits</a>
+    <a href="#tables" class="text-blue-600 hover:underline">Table Content</a>
+    <a href="#forms" class="text-blue-600 hover:underline">Forms</a>
+    <a href="#interactive" class="text-blue-600 hover:underline">Interactive Elements</a>
+  </nav>
+</div>
+
+<main class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-lg">
+
+  <section id="sectioning-root" class="mb-12 p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-700">1. Sectioning Root</h2>
+    <p>The <code>&lt;body&gt;</code> element, which contains all the content of an HTML document, is the primary sectioning root. This entire page content is within the body.</p>
+  </section>
+
+  <section id="content-sectioning" class="mb-12 p-4 border-l-4 border-green-500 bg-green-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-green-700">2. Content Sectioning</h2>
+
+    <article class="mb-6 p-4 border border-gray-300 rounded-md">
+      <h3 class="text-xl font-semibold mb-2"><code>&lt;article&gt;</code> Element</h3>
+      <p>This is an <code>&lt;article&gt;</code>. It represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry.</p>
+      <section class="mt-4 p-3 border border-gray-200 rounded-md bg-gray-50">
+        <h4 class="text-lg font-medium"><code>&lt;section&gt;</code> nested in article</h4>
+        <p>This is a <code>&lt;section&gt;</code> within the article, used for grouping thematically related content.</p>
+      </section>
+    </article>
+
+    <nav class="mb-6 p-4 border border-gray-300 rounded-md bg-gray-100">
+      <h3 class="text-xl font-semibold mb-2"><code>&lt;nav&gt;</code> Element</h3>
+      <p>This <code>&lt;nav&gt;</code> block represents a section of a page whose purpose is to provide navigation links, either within the current document or to other documents. The table of contents above is another example.</p>
+      <ul class="list-disc list-inside ml-4">
+        <li><a href="#home" class="text-blue-600 hover:underline">Home (dummy)</a></li>
+        <li><a href="#about" class="text-blue-600 hover:underline">About (dummy)</a></li>
+      </ul>
+    </nav>
+
+    <aside class="mb-6 p-4 border border-gray-300 rounded-md bg-yellow-50 float-right w-full md:w-1/3 ml-0 md:ml-4 clear-both md:clear-none">
+      <h3 class="text-xl font-semibold mb-2"><code>&lt;aside&gt;</code> Element</h3>
+      <p>This is an <code>&lt;aside&gt;</code>. It represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.</p>
+    </aside>
+
+    <div class="clear-both md:clear-none"> <h3 class="text-xl font-semibold mt-4 mb-2">Heading Elements <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></h3>
+      <div class="p-4 border border-gray-300 rounded-md">
+        <h1>Heading 1 (<code>&lt;h1&gt;</code>) - Typically page title, used in header.</h1>
+        <h2>Heading 2 (<code>&lt;h2&gt;</code>) - Used for main section titles.</h2>
+        <h3>Heading 3 (<code>&lt;h3&gt;</code>) - Used for sub-section titles.</h3>
+        <h4>Heading 4 (<code>&lt;h4&gt;</code>) - Deeper level heading.</h4>
+        <h5>Heading 5 (<code>&lt;h5&gt;</code>) - Even deeper.</h5>
+        <h6>Heading 6 (<code>&lt;h6&gt;</code>) - The deepest heading level.</h6>
+      </div>
+    </div>
+
+
+    <div class="mt-6 p-4 border border-gray-300 rounded-md">
+      <h3 class="text-xl font-semibold mb-2"><code>&lt;address&gt;</code> Element</h3>
+      <address>
+        Written by: <a href="mailto:webmaster@example.com" class="text-blue-600 hover:underline">The HTML Crafters</a><br>
+        Visit us at:<br>
+        Example.com<br>
+        Box 564, Disneyland<br>
+        USA
+      </address>
+      <p class="mt-2 text-sm text-gray-600">The <code>&lt;address&gt;</code> element indicates that the enclosed HTML provides contact information for a person or people, or for an organization.</p>
+    </div>
+  </section>
+
+  <section id="text-content" class="mb-12 p-4 border-l-4 border-purple-500 bg-purple-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-purple-700">3. Text Content</h2>
+
+    <p class="mb-2">This is a <code>&lt;p&gt;</code> (paragraph) element, used for blocks of text.</p>
+    <hr class="my-4 border-gray-300"> <p class="mb-2">The <code>&lt;hr&gt;</code> element above represents a thematic break between paragraph-level elements.</p>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;pre&gt;</code> Element (Preformatted Text)</h4>
+      <pre class="bg-gray-800 text-white p-3 rounded-md overflow-x-auto"><code>
+function greet() {
+  console.log("Hello, world!");
+}
+                </code></pre>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;blockquote&gt;</code> Element</h4>
+      <blockquote cite="http://www.example.com/source" class="border-l-4 border-gray-400 pl-4 italic text-gray-700">
+        <p>"This is a quotation taken from another source. It's good practice to cite the source using the 'cite' attribute."</p>
+        <footer class="text-sm text-gray-500 mt-1">—Famous Person, <cite>Source Title</cite></footer>
+      </blockquote>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;ol&gt;</code> (Ordered List)</h4>
+        <ol class="list-decimal list-inside">
+          <li>First item</li>
+          <li>Second item
+            <ol class="list-alpha list-inside ml-6">
+              <li>Nested item A</li>
+              <li>Nested item B</li>
+            </ol>
+          </li>
+          <li>Third item</li>
+        </ol>
+      </div>
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;ul&gt;</code> (Unordered List)</h4>
+        <ul class="list-disc list-inside">
+          <li>Bullet point 1</li>
+          <li>Bullet point 2
+            <ul class="list-circle list-inside ml-6">
+              <li>Nested bullet A</li>
+              <li>Nested bullet B</li>
+            </ul>
+          </li>
+          <li>Bullet point 3</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code> (Description List)</h4>
+      <dl>
+        <dt class="font-semibold">HTML</dt>
+        <dd class="ml-4 mb-1">HyperText Markup Language</dd>
+        <dt class="font-semibold">CSS</dt>
+        <dd class="ml-4 mb-1">Cascading Style Sheets</dd>
+      </dl>
+    </div>
+
+    <div class="mb-4 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code></h4>
+      <figure class="text-center">
+        <img src="https://placehold.co/400x200/007bff/ffffff?text=Sample+Image" alt="A placeholder image" class="mx-auto rounded-md shadow-sm">
+        <figcaption class="mt-2 text-sm text-gray-600">Fig.1 - A sample image with a caption using <code>&lt;figcaption&gt;</code>.</figcaption>
+      </figure>
+    </div>
+
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;div&gt;</code> Element</h4>
+      <div class="p-2 bg-gray-200 rounded">
+        This is a <code>&lt;div&gt;</code>. It's a generic container for flow content and doesn't inherently represent anything. It's often used for styling or scripting purposes.
+      </div>
+    </div>
+  </section>
+
+  <section id="inline-text" class="mb-12 p-4 border-l-4 border-teal-500 bg-teal-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-teal-700">4. Inline Text Semantics</h2>
+    <div class="space-y-2 p-3 border border-gray-200 rounded-md">
+      <p><a href="#" class="text-blue-600 hover:underline">This is a hyperlink (<code>&lt;a&gt;</code>).</a></p>
+      <p><em>This text is emphasized (<code>&lt;em&gt;</code>).</em></p>
+      <p><strong>This text is strongly important (<code>&lt;strong&gt;</code>).</strong></p>
+      <p><small>This text is small print (<code>&lt;small&gt;</code>).</small></p>
+      <p><s>This text is struck-through (<code>&lt;s&gt;</code>), indicating it's no longer accurate.</s></p>
+      <p><cite>The Scream</cite> by Edvard Munch. (<code>&lt;cite&gt;</code> for work titles).</p>
+      <p><q>This is a short inline quotation (<code>&lt;q&gt;</code>).</q></p>
+      <p>The <code>&lt;code&gt;</code> element is for <code>inline code</code> snippets.</p>
+      <p>H<sub>2</sub>O (<code>&lt;sub&gt;</code> for subscript). E = mc<sup>2</sup> (<code>&lt;sup&gt;</code> for superscript).</p>
+      <p><i>This text is in italics (<code>&lt;i&gt;</code>), often for technical terms or foreign words.</i></p>
+      <p><b>This text is bold (<code>&lt;b&gt;</code>), stylistically offset without conveying extra importance.</b></p>
+      <p><u>This text is underlined (<code>&lt;u&gt;</code>), though use with caution as it can be confused with links.</u></p>
+      <p>You can <mark>highlight text (<code>&lt;mark&gt;</code>)</mark> for reference or notation.</p>
+      <p>This_is_a_very_long_word<wbr>that_might_need_a_word_break_opportunity (<code>&lt;wbr&gt;</code>).</p>
+      <p>The concert is on <time datetime="2025-12-25">Christmas Day</time> (<code>&lt;time&gt;</code>).</p>
+      <p>This is a <span>generic inline container (<code>&lt;span&gt;</code>)</span>, often used for styling hooks.</p>
+    </div>
+  </section>
+
+  <section id="multimedia" class="mb-12 p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-indigo-700">5. Image and Multimedia</h2>
+
+    <div class="mb-6 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;img&gt;</code> Element</h4>
+      <img src="https://placehold.co/600x150/3498db/ffffff?text=Responsive+Image" alt="Placeholder image" class="w-full h-auto rounded-md shadow-sm"
+           onerror="this.onerror=null; this.src='https://placehold.co/600x150/cc0000/ffffff?text=Image+Failed+To+Load';">
+      <p class="mt-2 text-sm text-gray-600">The <code>onerror</code> attribute provides a fallback if the image fails to load.</p>
+
+      <h4 class="text-lg font-medium mt-4 mb-1">Image with <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code></h4>
+      <img src="https://placehold.co/300x150/2ecc71/ffffff?text=Image+Map" alt="Image map placeholder" usemap="#image-map-example" class="rounded-md shadow-sm">
+      <map name="image-map-example">
+        <area shape="rect" coords="25,25,125,125" href="#rect-link" alt="Rectangle Area" title="Rectangle Area (dummy link)">
+        <area shape="circle" coords="225,75,50" href="#circle-link" alt="Circle Area" title="Circle Area (dummy link)">
+      </map>
+      <p class="mt-1 text-xs text-gray-500">Hover over the image sections (not functional without JS to show feedback easily, but map is defined).</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;audio&gt;</code> Element</h4>
+        <audio controls class="w-full">
+          <source src="non_existent_audio_file.mp3" type="audio/mpeg">
+          <source src="non_existent_audio_file.ogg" type="audio/ogg">
+          Your browser does not support the audio element. (Fallback content)
+        </audio>
+        <p class="mt-1 text-xs text-gray-500">Note: Actual audio file is not provided, this shows the element structure.</p>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;video&gt;</code> Element</h4>
+        <video controls width="100%" class="rounded-md shadow-sm" poster="https://placehold.co/320x180/e74c3c/ffffff?text=Video+Poster">
+          <source src="non_existent_video_file.mp4" type="video/mp4">
+          <source src="non_existent_video_file.webm" type="video/webm">
+          <track label="English" kind="subtitles" srclang="en" src="non_existent_subtitles.vtt" default>
+          Your browser does not support the video tag. (Fallback content)
+        </video>
+        <p class="mt-1 text-xs text-gray-500">Note: Actual video/track files are not provided.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;svg&gt;</code> Element (Inline SVG)</h4>
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 mx-auto">
+          <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        </svg>
+        <p class="text-center mt-1 text-xs text-gray-500">A simple circle drawn with SVG.</p>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;canvas&gt;</code> Element</h4>
+        <canvas id="myCanvas" width="200" height="100" class="border border-gray-400 rounded-md mx-auto block">
+          Your browser does not support the canvas tag.
+        </canvas>
+        <p class="text-center mt-1 text-xs text-gray-500">Canvas element (drawing via JS not included here).</p>
+      </div>
+    </div>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;picture&gt;</code> Element</h4>
+      <picture>
+        <source srcset="https://placehold.co/800x200/f39c12/ffffff?text=Large+Screen" media="(min-width: 768px)">
+        <source srcset="https://placehold.co/400x100/16a085/ffffff?text=Small+Screen" media="(min-width: 480px)">
+        <img src="https://placehold.co/300x75/c0392b/ffffff?text=Default+Image" alt="Responsive placeholder image" class="w-full h-auto rounded-md shadow-sm">
+      </picture>
+      <p class="mt-1 text-xs text-gray-500">The <code>&lt;picture&gt;</code> element allows for art direction based on viewport size. Resize your browser to see different images (placeholders).</p>
+    </div>
+  </section>
+
+  <section id="embedded-content" class="mb-12 p-4 border-l-4 border-pink-500 bg-pink-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-pink-700">6. Embedded Content</h2>
+    <div class="p-3 border border-gray-200 rounded-md mb-4">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;iframe&gt;</code> Element</h4>
+      <p class="mb-2 text-sm">Below is an iframe. For security reasons, embedding external sites might be restricted by the browser or the site itself (X-Frame-Options header). A simple placeholder page or a known-permissive site would work better for live demos.</p>
+      <iframe src="about:blank" title="Sample Iframe" class="w-full h-48 border border-gray-300 rounded-md" sandbox>
+        Your browser does not support iframes.
+      </iframe>
+      <p class="mt-1 text-xs text-gray-500">Using <code>about:blank</code> and <code>sandbox</code> for a safe, simple example.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;embed&gt;</code> Element (Legacy, use with caution)</h4>
+        <p class="text-gray-600">The <code>&lt;embed&gt;</code> tag is for embedding external content, often plugin-based. Modern alternatives like <code>&lt;object&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;img&gt;</code> are preferred. Example commented out as Flash is deprecated.</p>
+        <div class="w-full h-32 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">Embed Placeholder</div>
+      </div>
+
+      <div class="p-3 border border-gray-200 rounded-md">
+        <h4 class="text-lg font-medium mb-1"><code>&lt;object&gt;</code> Element</h4>
+        <p class="text-gray-600">The <code>&lt;object&gt;</code> tag can embed various types of external resources, like images, nested browsing contexts, or plugin content. Example for PDF commented out.</p>
+        <div class="w-full h-32 bg-gray-200 flex items-center justify-center rounded-md text-gray-500">Object Placeholder</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scripting" class="mb-12 p-4 border-l-4 border-yellow-500 bg-yellow-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-yellow-700">7. Scripting</h2>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;script&gt;</code> Element</h4>
+      <p>The <code>&lt;script&gt;</code> element is used to embed or refer to executable script. It's typically JavaScript. One is used in the <code>&lt;head&gt;</code> for Tailwind CSS. Another could be here:</p>
+      <script>
+        // Example inline JavaScript
+        // This script just logs to the console, it doesn't alter the page visually here.
+        console.log("Hello from an inline script in the 'Scripting' section!");
+
+        // Example of interacting with the canvas (very basic)
+        const canvas = document.getElementById('myCanvas');
+        if (canvas && canvas.getContext) {
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.fillStyle = 'rgb(200, 0, 0)';
+            ctx.fillRect(10, 10, 50, 50); // Draw a red square
+
+            ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
+            ctx.fillRect(30, 30, 50, 50); // Draw a blue square
+          }
+        }
+      </script>
+      <pre class="bg-gray-800 text-white p-2 rounded mt-2 text-sm"><code>// console.log("Hello from an inline script!");</code></pre>
+
+      <h4 class="text-lg font-medium mt-4 mb-1"><code>&lt;noscript&gt;</code> Element</h4>
+      <noscript>
+        <p class="text-red-600 p-2 bg-red-100 rounded-md">This content is shown if scripting is disabled in the browser. (<code>&lt;noscript&gt;</code>)</p>
+      </noscript>
+      <p class="mt-1 text-xs text-gray-500">If JavaScript is enabled, you won't see the noscript message above.</p>
+    </div>
+  </section>
+
+  <section id="edits" class="mb-12 p-4 border-l-4 border-red-500 bg-red-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-red-700">8. Demarcating Edits</h2>
+    <div class="p-3 border border-gray-200 rounded-md">
+      <p>The original price was <del class="text-red-500">$100</del> (<code>&lt;del&gt;</code> for deleted text).</p>
+      <p>The new price is <ins class="text-green-600 bg-green-100 p-1 rounded">$80</ins> (<code>&lt;ins&gt;</code> for inserted text).</p>
+    </div>
+  </section>
+
+  <section id="tables" class="mb-12 p-4 border-l-4 border-cyan-500 bg-cyan-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-cyan-700">9. Table Content</h2>
+    <div class="overflow-x-auto p-3 border border-gray-200 rounded-md">
+      <table class="w-full border-collapse border border-gray-300 rounded-md shadow-sm">
+        <caption class="caption-bottom text-sm text-gray-600 p-2 bg-gray-100 rounded-t-md">Table 1: User Data (<code>&lt;caption&gt;</code>)</caption>
+        <colgroup>
+          <col span="1" class="bg-blue-50"> <col span="2" class="bg-green-50"> </colgroup>
+        <thead class="bg-gray-200">
+        <tr>
+          <th class="p-3 border border-gray-300 text-left">ID (<code>&lt;th&gt;</code>)</th>
+          <th class="p-3 border border-gray-300 text-left">Name</th>
+          <th class="p-3 border border-gray-300 text-left">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="p-3 border border-gray-300">1 (<code>&lt;td&gt;</code>)</td>
+          <td class="p-3 border border-gray-300">Alice Wonderland</td>
+          <td class="p-3 border border-gray-300">alice@example.com</td>
+        </tr>
+        <tr class="bg-gray-50">
+          <td class="p-3 border border-gray-300">2</td>
+          <td class="p-3 border border-gray-300">Bob The Builder</td>
+          <td class="p-3 border border-gray-300">bob@example.com</td>
+        </tr>
+        </tbody>
+        <tfoot class="bg-gray-200">
+        <tr>
+          <td colspan="3" class="p-3 border border-gray-300 text-center">End of user data (<code>&lt;tfoot&gt;</code>)</td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section id="forms" class="mb-12 p-4 border-l-4 border-orange-500 bg-orange-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-orange-700">10. Forms</h2>
+    <form action="#submit-form" method="post" class="space-y-6 p-4 border border-gray-300 rounded-md shadow-sm">
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Personal Information (<code>&lt;fieldset&gt;</code> & <code>&lt;legend&gt;</code>)</legend>
+
+        <div class="mb-4">
+          <label for="nameInput" class="block text-sm font-medium text-gray-700 mb-1">Full Name (<code>&lt;label&gt;</code>):</label>
+          <input type="text" id="nameInput" name="fullname" placeholder="Enter your full name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm">
+        </div>
+
+        <div class="mb-4">
+          <label for="emailInput" class="block text-sm font-medium text-gray-700 mb-1">Email (<code>&lt;input type="email"&gt;</code>):</label>
+          <input type="email" id="emailInput" name="email" placeholder="you@example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+        </div>
+
+        <div class="mb-4">
+          <label for="passwordInput" class="block text-sm font-medium text-gray-700 mb-1">Password (<code>&lt;input type="password"&gt;</code>):</label>
+          <input type="password" id="passwordInput" name="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Preferences</legend>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Interests (<code>&lt;input type="checkbox"&gt;</code>):</label>
+          <div class="mt-2 space-y-2">
+            <label class="inline-flex items-center">
+              <input type="checkbox" name="interests" value="coding" class="rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+              <span class="ml-2">Coding</span>
+            </label>
+            <label class="inline-flex items-center ml-4">
+              <input type="checkbox" name="interests" value="music" class="rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+              <span class="ml-2">Music</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1">Contact Preference (<code>&lt;input type="radio"&gt;</code>):</label>
+          <div class="mt-2 space-y-2">
+            <label class="inline-flex items-center">
+              <input type="radio" name="contact_pref" value="email" checked class="text-orange-600 border-gray-300 focus:ring-orange-500">
+              <span class="ml-2">Email</span>
+            </label>
+            <label class="inline-flex items-center ml-4">
+              <input type="radio" name="contact_pref" value="phone" class="text-orange-600 border-gray-300 focus:ring-orange-500">
+              <span class="ml-2">Phone</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="fruitSelect" class="block text-sm font-medium text-gray-700 mb-1">Fruit (<code>&lt;select&gt;</code>, <code>&lt;option&gt;</code>, <code>&lt;optgroup&gt;</code>):</label>
+          <select id="fruitSelect" name="fruit" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm rounded-md">
+            <optgroup label="Green">
+              <option value="us">Grape</option>
+              <option value="ca">Kiwi</option>
+            </optgroup>
+            <optgroup label="Red">
+              <option value="gb">Rambutan</option>
+              <option value="de">Lychee</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="mb-4">
+          <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Comments (<code>&lt;textarea&gt;</code>):</label>
+          <textarea id="comments" name="comments" rows="3" placeholder="Any comments?" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Other Inputs</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label for="favColor" class="block text-sm font-medium text-gray-700">Favorite Color (<code>type="color"</code>):</label>
+            <input type="color" id="favColor" name="favColor" value="#ff6347" class="mt-1 block w-full h-10 rounded-md border-gray-300 shadow-sm">
+          </div>
+          <div>
+            <label for="birthDate" class="block text-sm font-medium text-gray-700">Birth Date (<code>type="date"</code>):</label>
+            <input type="date" id="birthDate" name="birthDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity (<code>type="number"</code>):</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="volume" class="block text-sm font-medium text-gray-700">Volume (<code>type="range"</code>):</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50" class="mt-1 block w-full h-6 accent-orange-500">
+          </div>
+          <div>
+            <label for="homepage" class="block text-sm font-medium text-gray-700">Homepage (<code>type="url"</code>):</label>
+            <input type="url" id="homepage" name="homepage" placeholder="https://example.com" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700">Phone (<code>type="tel"</code>):</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="searchQuery" class="block text-sm font-medium text-gray-700">Search (<code>type="search"</code>):</label>
+            <input type="search" id="searchQuery" name="searchQuery" placeholder="Search..." class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          </div>
+          <div>
+            <label for="attachment" class="block text-sm font-medium text-gray-700">Attachment (<code>type="file"</code>):</label>
+            <input type="file" id="attachment" name="attachment" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-orange-50 file:text-orange-700 hover:file:bg-orange-100">
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="browserSuggestion" class="block text-sm font-medium text-gray-700 mb-1">Browser (<code>&lt;datalist&gt;</code>):</label>
+          <input list="browsers" id="browserSuggestion" name="browser" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500">
+          <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Safari">
+            <option value="Edge">
+            <option value="Opera">
+          </datalist>
+        </div>
+      </fieldset>
+
+      <fieldset class="p-4 border border-gray-200 rounded-md">
+        <legend class="text-lg font-medium px-2 text-orange-600">Meters & Progress</legend>
+        <div class="mb-4">
+          <label for="diskUsage" class="block text-sm font-medium text-gray-700">Disk Usage (<code>&lt;meter&gt;</code>):</label>
+          <meter id="diskUsage" value="75" min="0" max="100" low="30" high="80" optimum="50" class="w-full h-6 mt-1">75%</meter>
+          <p class="text-xs text-gray-500">Value: 75, Min: 0, Max: 100, Low: 30, High: 80, Optimum: 50</p>
+        </div>
+        <div class="mb-4">
+          <label for="fileProgress" class="block text-sm font-medium text-gray-700">File Download (<code>&lt;progress&gt;</code>):</label>
+          <progress id="fileProgress" value="60" max="100" class="w-full h-6 mt-1 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg   [&::-webkit-progress-bar]:bg-slate-300 [&::-webkit-progress-value]:bg-orange-400 [&::-moz-progress-bar]:bg-orange-400">60%</progress>
+          <p class="text-xs text-gray-500">Current progress: 60%</p>
+        </div>
+        <div class="mb-4">
+          <label for="calcOutput" class="block text-sm font-medium text-gray-700">Calculation Result (<code>&lt;output&gt;</code>):</label>
+          <output name="result" for="a b" class="mt-1 p-2 block w-full bg-gray-100 rounded-md border border-gray-300">Result will appear here</output>
+          <p class="text-xs text-gray-500">(Typically populated by JavaScript after a calculation, e.g., <code>oninput="result.value=parseInt(a.value)+parseInt(b.value)"</code> if 'a' and 'b' were inputs)</p>
+        </div>
+      </fieldset>
+
+      <div class="flex items-center justify-end space-x-3">
+        <button type="reset" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+          Reset (<code>&lt;input type="reset"&gt;</code> or <code>&lt;button type="reset"&gt;</code>)
+        </button>
+        <button type="button" onclick="alert('Button clicked! (This is a JS alert, ideally use a custom modal)')" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+          Generic Button (<code>&lt;button type="button"&gt;</code>)
+        </button>
+        <input type="submit" value="Submit Input (type='submit')" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 cursor-pointer">
+        <button type="submit" class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+          Submit Button (<code>&lt;button type="submit"&gt;</code>)
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section id="interactive" class="mb-12 p-4 border-l-4 border-lime-500 bg-lime-50 rounded-r-md">
+    <h2 class="text-2xl font-semibold mb-4 text-lime-700">11. Interactive Elements</h2>
+
+    <div class="mb-6 p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code></h4>
+      <details class="bg-white p-3 rounded-md shadow">
+        <summary class="text-lime-800 hover:text-lime-600">Click to see details</summary>
+        <p class="mt-2 text-gray-700">This content is hidden by default and can be toggled by clicking the summary. The <code>&lt;details&gt;</code> element creates a disclosure widget.</p>
+      </details>
+    </div>
+
+    <div class="p-3 border border-gray-200 rounded-md">
+      <h4 class="text-lg font-medium mb-1"><code>&lt;dialog&gt;</code> Element</h4>
+      <button id="showDialogBtn" class="px-4 py-2 bg-lime-600 text-white rounded-md hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2">Show Dialog</button>
+      <dialog id="myDialog" class="rounded-lg shadow-xl p-6 w-full max-w-md mx-auto">
+        <h3 class="text-xl font-semibold mb-3 text-lime-700">Dialog Title</h3>
+        <p class="text-gray-700 mb-4">This is a modal dialog. It can be closed by pressing ESC or clicking the button below.</p>
+        <form method="dialog">
+          <button class="px-4 py-2 bg-lime-500 text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-400">Close Dialog</button>
+        </form>
+      </dialog>
+      <p class="mt-2 text-xs text-gray-500">The <code>&lt;dialog&gt;</code> element can be controlled with JavaScript (<code>.showModal()</code>, <code>.close()</code>).</p>
+    </div>
+  </section>
+
+  <div id="customMessageBox" class="message-box">
+    This is a custom message!
+  </div>
+
+</main>
+
+<footer class="bg-gray-800 text-gray-300 p-8 mt-12 text-center">
+  <div class="container mx-auto">
+    <p>&copy; <time datetime="2025">prgrm274</time> HTML Elements Showcase. All rights reserved.</p>
+    <p class="text-sm mt-1">Designed to demonstrate a variety of HTML tags.</p>
+    <p class="text-xs mt-2">Page last updated: <time id="lastUpdatedTime">May 8, 2025</time></p>
+  </div>
+</footer>
+
+<script>
+  // JavaScript for interactive elements like the dialog
+  const showDialogBtn = document.getElementById('showDialogBtn');
+  const myDialog = document.getElementById('myDialog');
+
+  if (showDialogBtn && myDialog) {
+    showDialogBtn.addEventListener('click', () => {
+      if (typeof myDialog.showModal === "function") {
+        myDialog.showModal();
+      } else {
+        // Fallback for browsers that don't support showModal
+        // You might need a polyfill or a custom solution here
+        console.warn("The <dialog> API (showModal) is not supported by this browser.");
+        // A simple alert as a fallback, though custom modals are better.
+        // For this demo, we won't use alert() to adhere to instructions.
+        // Instead, we could show a custom message box.
+        const customMessage = document.getElementById('customMessageBox');
+        if(customMessage) {
+          customMessage.textContent = 'Dialog.showModal() not supported. This is a fallback message.';
+          customMessage.style.display = 'block';
+          setTimeout(() => { customMessage.style.display = 'none'; }, 3000);
+        }
+      }
+    });
+  }
+
+  // Update last updated time dynamically (optional, for realism)
+  // const lastUpdatedElem = document.getElementById('lastUpdatedTime');
+  // if (lastUpdatedElem) {
+  //    lastUpdatedElem.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  // }
+</script>
 
 </body>
-
 </html>
